@@ -8,5 +8,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "18"
+  },
+  "volta": {
+    "node": "18.12.1"
+  }
 }
