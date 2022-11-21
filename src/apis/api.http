@@ -1,0 +1,19 @@
+@port = 3005
+@apiBaseUrl = http://localhost:{{port}}/api
+@marvelApiBaseUrl = {{apiBaseUrl}}/marvel
+@omdbApiBaseUrl = {{apiBaseUrl}}/omdb
+@swApiBaseUrl = {{apiBaseUrl}}/sw
+
+###
+
+{{marvelApiBaseUrl}}/movies
+
+###
+{{omdbApiBaseUrl}}/?s=love
+
+###
+{{swApiBaseUrl}}/people/1
+
+###
+
+https://swapi.dev/api/people/1
