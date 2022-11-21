@@ -1,7 +1,7 @@
-import { md5 } from "../utils/crypto"
+import { md5 } from '../utils/crypto'
 import { ofetch } from 'ofetch'
 
-import config from "../config.ts"
+import config from '../config.ts'
 
 const { marvelPublicKey: publicKey, marvelPrivateKey: secret } = config
 
@@ -14,7 +14,7 @@ const marvelApiBaseUrl = 'http://gateway.marvel.com/v1/public/'
  */
 export default async function marvelApiRoutes (fastify, options) {
   fastify.get('/api/marvel/*', async (request, reply) => {
-    fastify.log.info({publicKey, secret})
+    fastify.log.info({ publicKey, secret })
     const ts = Date.now()
     const hash = md5(ts + secret + publicKey)
     const query = {
@@ -27,9 +27,8 @@ export default async function marvelApiRoutes (fastify, options) {
     const queryString = new URLSearchParams(query).toString()
 
     const marvelUrl = `${marvelApiBaseUrl}${Object.values(request.params).join('/')}?${queryString}`
-    fastify.log.info({marvelUrl})
+    fastify.log.info({ marvelUrl })
     const response = await ofetch(marvelUrl)
-
 
     return {
       hello: 'marvel',

@@ -16,4 +16,15 @@
 
 ###
 
+
 https://swapi.dev/api/people/1
+
+###
+
+POST http://localhost:3005/api/auth/token HTTP/2
+Content-Type: application/json
+
+{
+  "username": "tonystark",
+  "password": "P3pp3RP0775"
+}

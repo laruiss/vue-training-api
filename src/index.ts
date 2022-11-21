@@ -1,5 +1,6 @@
 import Fastify from 'fastify'
 
+import auth from './auth.js'
 import marvelApi from './apis/marvel-api.js'
 import omdbApi from './apis/omdb-api.js'
 import swApi from './apis/sw-api.js'
@@ -11,10 +12,11 @@ const { port } = config
 /**
  * @type {import('fastify').FastifyInstance} Instance of Fastify
  */
- const fastify = Fastify({
-  logger: true
+const fastify = Fastify({
+  logger: true,
 })
 
+fastify.register(auth)
 fastify.register(marvelApi)
 fastify.register(swApi)
 fastify.register(omdbApi)

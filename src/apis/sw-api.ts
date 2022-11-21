@@ -16,9 +16,8 @@ export default async function swApiRoutes (fastify, options) {
     const queryString = new URLSearchParams(query).toString()
 
     const swUrl = `${swApiBaseUrl}${Object.values(request.params).join('/')}?${queryString}`
-    fastify.log.info({swUrl})
+    fastify.log.info({ swUrl })
     const response = await ofetch(swUrl)
-
 
     return {
       hello: 'sw',

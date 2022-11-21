@@ -1,6 +1,6 @@
 import { ofetch } from 'ofetch'
 
-import config from "../config.ts"
+import config from '../config.ts'
 
 const { omdbApiKey } = config
 
@@ -21,9 +21,8 @@ export default async function omdbApiRoutes (fastify, options) {
     const queryString = new URLSearchParams(query).toString()
 
     const omdbUrl = `${omdbApiBaseUrl}?${queryString}`
-    fastify.log.info({omdbUrl})
+    fastify.log.info({ omdbUrl })
     const response = await ofetch(omdbUrl)
-
 
     return {
       hello: 'omdb',
